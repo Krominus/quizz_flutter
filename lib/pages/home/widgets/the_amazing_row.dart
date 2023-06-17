@@ -33,7 +33,7 @@ class TheAmazingRow extends StatelessWidget {
                   child: Image.asset(
                     imagePath,
                     fit: BoxFit.cover,
-                    height: 200, // Hauteur personnalisée de l'image
+                    height: 200, 
                   ),
                 ),
                 SizedBox(height: 10),

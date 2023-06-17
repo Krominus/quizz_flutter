@@ -50,7 +50,6 @@ class _DetailPageState extends State<DetailPage> {
       }
       response = mcqOptions[currentQuestionIndex][selectedOption!];
     } else {
-      // Validate regular answer
       response = textControllers[currentQuestionIndex].text.trim().toLowerCase();
     }
 
@@ -58,7 +57,6 @@ class _DetailPageState extends State<DetailPage> {
 
     if (response == correctAnswer) {
       print("Bonne réponse pour la question $currentQuestionIndex: $response");
-      // Perform appropriate action for correct answer
       if (currentQuestionIndex == questions.length - 1) {
         // Show pop-up dialog for last question
         showDialog(
@@ -72,7 +70,6 @@ class _DetailPageState extends State<DetailPage> {
                   child: Text('OK'),
                   onPressed: () {
                     Navigator.of(context).pop(); // Close the dialog
-                    // Perform any additional actions
                   },
                 ),
               ],
@@ -84,7 +81,7 @@ class _DetailPageState extends State<DetailPage> {
       }
     } else {
       print("Mauvaise réponse pour la question $currentQuestionIndex: $response");
-      // Perform appropriate action for incorrect answer
+  
       setState(() {
         textControllers[currentQuestionIndex].text = ''; // Clear the text field
         textControllers[currentQuestionIndex].selection =
@@ -127,7 +124,6 @@ class _DetailPageState extends State<DetailPage> {
     final optionStyle = TextStyle(fontSize: 16);
 
     if (currentQuestionIndex == 1 && pokemonName == "MARVEL") {
-      // Render multiple-choice question widget for quizzMarvel question 2
       return Column(
         children: [
           Text(
@@ -156,7 +152,6 @@ class _DetailPageState extends State<DetailPage> {
         ],
       );
     } else {
-      // Render regular question widget for other questions
       return Column(
         children: [
           Text(
@@ -166,7 +161,7 @@ class _DetailPageState extends State<DetailPage> {
           ),
           SizedBox(height: 20),
           TextField(
-            textAlign: TextAlign.center, // Center the text in the TextField
+            textAlign: TextAlign.center, 
             controller: textControllers[currentQuestionIndex],
             decoration: InputDecoration(
               border: OutlineInputBorder(
